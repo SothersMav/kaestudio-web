@@ -1,0 +1,40 @@
+CÓMO SUBIR LOS VIDEOS DEL SITIO KA ESTUDIO
+==========================================
+
+El sitio espera los videos en 3 carpetas, que coinciden con las
+pestañas de la sección de videos:
+
+  videos/reels/      → pestaña "reels"     (17 videos)
+  videos/campanas/   → pestaña "campañas"  (7 videos)
+  videos/eventos/    → pestaña "eventos"   (3 videos)
+
+(la carpeta se llama "campanas" sin la ñ para evitar problemas de
+codificación en la web; en el sitio la pestaña sí dice "campañas".)
+
+PASOS
+-----
+1. Abre cada carpeta y mira el archivo "_SUBIR_VIDEOS_AQUI.txt":
+   ahí está la lista exacta de nombres que debe tener cada video.
+2. Sube tus .mp4 respetando ESE nombre exacto (mayúsculas, espacios y
+   puntos incluidos). Si el nombre calza, el video se reproduce solo
+   en su tile.
+3. Mientras no subas un video, el tile muestra una imagen temporal
+   (placeholder) para que el diseño no se vea roto.
+
+DESTACADOS (lo que sale "al principio" en el home)
+--------------------------------------------------
+La sección "trabajos destacados" del home muestra estos 8, en este orden:
+  1. Salfa Arica · Kia Sportage      (reels)
+  2. 3820 Azotea · Dron Edit         (reels)
+  3. Bardot · Outfit Vibes           (reels)
+  4. Mayan · Night Out               (reels)
+  5. Krispy Kreme · Donuts           (campañas)
+  6. Little Caesars · Teaser         (campañas)
+  7. Omoda · Cinematic Day           (eventos)
+  8. Rabanne · Lanzamiento           (eventos)
+
+Para cambiar cuáles son destacados, edita home.jsx y mueve el
+`featured: true` al video que quieras.
+
+La página Portafolio.html muestra TODOS los videos (los 27),
+filtrables por las mismas pestañas.

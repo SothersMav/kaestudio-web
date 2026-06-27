@@ -1,0 +1,5 @@
+Coloca aquí los 3 GIF con estos nombres exactos (minúsculas, sin espacios ni tildes):
+  paid-media.gif         -> sección "gestión de pauta"
+  plan-contenidos.gif    -> sección "qué hacemos / contenido"
+  reporte-mensual.gif    -> sección "cómo funciona / reporte"
+Y el reel en videos/ads/reel-ka-studio.mp4 (sección de cifras del home).

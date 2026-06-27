@@ -1,0 +1,215 @@
+/* ============================================================
+   KA Estudio — Colors & Type
+   Source: Manual de Marca Ka Estudio (2023)
+   ============================================================ */
+
+/* Nohemi Regular — commercial font by Pangram Pangram Foundry.
+   Licensed files provided by the brand owner. */
+@font-face {
+  font-family: 'Nohemi';
+  src: url('fonts/Nohemi-Regular.woff') format('woff'),
+       url('fonts/Nohemi-Regular.ttf') format('truetype'),
+       url('fonts/Nohemi-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ---------- Brand colors ---------- */
+  --ka-negro:   #1F1F1F;  /* Negro     · RGB 31,31,31    · CMYK 75,65,60,80 */
+  --ka-blanco:  #F2F2F2;  /* Blanco    · RGB 242,242,242 · CMYK 6,4,5,0     */
+  --ka-celeste: #A6E6ED;  /* Celeste   · RGB 166,230,237 · CMYK 37,0,11,0   */
+
+  /* Tonal extensions — derived for UI density (not in the brand manual) */
+  --ka-negro-900: #141414;
+  --ka-negro-800: #1F1F1F;  /* ≡ brand negro */
+  --ka-negro-600: #3A3A3A;
+  --ka-negro-400: #8A8A8A;
+  --ka-negro-200: #CFCFCF;
+  --ka-negro-100: #E3E3E3;
+
+  --ka-blanco-100: #F2F2F2;  /* ≡ brand blanco */
+  --ka-blanco-000: #FFFFFF;
+
+  --ka-celeste-700: #6EC7D1;
+  --ka-celeste-500: #A6E6ED;  /* ≡ brand celeste */
+  --ka-celeste-300: #CFF1F5;
+  --ka-celeste-100: #EAF9FB;
+
+  /* ---------- Semantic colors ---------- */
+  --fg-primary:    var(--ka-negro);
+  --fg-secondary:  var(--ka-negro-600);
+  --fg-tertiary:   var(--ka-negro-400);
+  --fg-on-dark:    var(--ka-blanco);
+  --fg-accent:     var(--ka-celeste);
+
+  --bg-canvas:     var(--ka-blanco);
+  --bg-surface:    var(--ka-blanco-000);
+  --bg-inverse:    var(--ka-negro);
+  --bg-accent:     var(--ka-celeste);
+  --bg-accent-soft:var(--ka-celeste-100);
+
+  --border-subtle: var(--ka-negro-100);
+  --border-strong: var(--ka-negro);
+
+  /* ---------- Typography ---------- */
+  --font-display: 'Nohemi', system-ui, -apple-system, sans-serif;
+  --font-body:    'Nohemi', system-ui, -apple-system, sans-serif;
+
+  /* Weight — Nohemi Regular is the canonical (and only licensed) brand weight.
+     All hierarchy comes from size, casing, and tracking — not weight. */
+  --fw-regular:  400;
+
+  /* Sizes — display-first scale */
+  --fs-hero:     clamp(56px, 9vw, 128px);
+  --fs-display:  clamp(40px, 6vw, 80px);
+  --fs-h1:       48px;
+  --fs-h2:       32px;
+  --fs-h3:       24px;
+  --fs-h4:       20px;
+  --fs-body-lg:  18px;
+  --fs-body:     16px;
+  --fs-body-sm:  14px;
+  --fs-caption:  12px;
+  --fs-bajada:   13px;  /* BAJADA · all caps · tracked */
+
+  /* Line height */
+  --lh-tight:   1.0;
+  --lh-snug:    1.15;
+  --lh-normal:  1.5;
+  --lh-relaxed: 1.65;
+
+  /* Letter-spacing */
+  --ls-tight:    -0.02em;
+  --ls-normal:   0;
+  --ls-bajada:   0.18em;   /* per manual: BAJADA "todo mayúsc + interletrado" */
+  --ls-eyebrow:  0.12em;
+
+  /* ---------- Spacing (4pt grid) ---------- */
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  24px;
+  --sp-6:  32px;
+  --sp-7:  48px;
+  --sp-8:  64px;
+  --sp-9:  96px;
+  --sp-10: 128px;
+
+  /* ---------- Radii ---------- */
+  --radius-none: 0;
+  --radius-xs:   2px;
+  --radius-sm:   6px;
+  --radius-md:   12px;
+  --radius-lg:   20px;
+  --radius-pill: 999px;
+
+  /* ---------- Shadows (restrained — brand is minimal) ---------- */
+  --shadow-none: none;
+  --shadow-xs:   0 1px 2px rgba(31,31,31,0.06);
+  --shadow-sm:   0 4px 12px rgba(31,31,31,0.06);
+  --shadow-md:   0 12px 32px rgba(31,31,31,0.08);
+  --shadow-lg:   0 24px 64px rgba(31,31,31,0.12);
+
+  /* ---------- Motion ---------- */
+  --ease-standard: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast:      160ms;
+  --dur-normal:    260ms;
+  --dur-slow:      520ms;
+}
+
+/* ============================================================
+   Base / semantic type roles
+   Following manual: títulos todo minúsculas, Subtítulos Primera Mayús,
+   BAJADA todo mayúsc + interletrado, párrafos primera letra + punto final.
+   ============================================================ */
+
+html, body {
+  font-family: var(--font-body);
+  font-weight: var(--fw-regular);
+  color: var(--fg-primary);
+  line-height: var(--lh-normal);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+html { background: var(--ka-celeste); }
+body { background: var(--bg-canvas); min-height: 100vh; }
+
+.ka-hero,
+h1.ka-hero {
+  font-family: var(--font-display);
+  font-size: var(--fs-hero);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  text-transform: lowercase;   /* títulos todo minúsculas */
+}
+
+.ka-display {
+  font-family: var(--font-display);
+  font-size: var(--fs-display);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  text-transform: lowercase;
+}
+
+h1, .ka-h1 {
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  text-transform: lowercase;
+}
+
+h2, .ka-h2 {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  text-transform: lowercase;
+}
+
+/* Subtítulos — Primera letra mayúsculas (sentence case) */
+h3, .ka-h3,
+h4, .ka-h4 {
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-snug);
+  letter-spacing: 0;
+  text-transform: none;
+}
+h3, .ka-h3 { font-size: var(--fs-h3); }
+h4, .ka-h4 { font-size: var(--fs-h4); }
+
+/* BAJADA — all caps, tracked; used for eyebrows, labels, category tags */
+.ka-bajada,
+.ka-eyebrow {
+  font-size: var(--fs-bajada);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-normal);
+  letter-spacing: var(--ls-bajada);
+  text-transform: uppercase;
+}
+
+/* Párrafos — sentence case, punto final */
+p, .ka-body {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-relaxed);
+  text-wrap: pretty;
+}
+
+.ka-body-lg { font-size: var(--fs-body-lg); line-height: var(--lh-relaxed); }
+.ka-body-sm { font-size: var(--fs-body-sm); line-height: var(--lh-normal); }
+.ka-caption { font-size: var(--fs-caption); color: var(--fg-tertiary); }
+
+/* Divider matching the vertical logo's center bar treatment */
+.ka-rule {
+  border: 0;
+  height: 2px;
+  background: currentColor;
+  margin: var(--sp-5) 0;
+}

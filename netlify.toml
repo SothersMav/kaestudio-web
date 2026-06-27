@@ -1,0 +1,8 @@
+# Configuración de deploy en Netlify
+# Fase 1: sitio estático servido tal cual (idéntico al actual).
+# Fase 2: aquí se agregará el comando de pre-render.
+
+[build]
+  publish = "."
+
+# Los redirects viven en el archivo _redirects (Netlify lo lee automáticamente).
