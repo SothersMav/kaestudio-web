@@ -1,0 +1,13 @@
+{
+  "name": "kaestudio-web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Sitio KA Estudio — pre-render estatico para SEO/IA (Fase 2)",
+  "scripts": {
+    "build": "node prerender.mjs"
+  },
+  "devDependencies": {
+    "puppeteer": "^24.10.0"
+  }
+}

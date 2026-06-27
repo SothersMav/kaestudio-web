@@ -1,8 +1,13 @@
 # Configuración de deploy en Netlify
-# Fase 1: sitio estático servido tal cual (idéntico al actual).
-# Fase 2: aquí se agregará el comando de pre-render.
+# Fase 2: pre-render estático para SEO/IA.
+# `npm run build` corre prerender.mjs (Chrome headless) y genera dist/
+# con el contenido incrustado en el HTML. El diseño y el JS del sitio no cambian.
 
 [build]
-  publish = "."
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
 
 # Los redirects viven en el archivo _redirects (Netlify lo lee automáticamente).
