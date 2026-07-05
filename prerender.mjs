@@ -91,6 +91,14 @@ async function run() {
       // breve settle para asincronos
       await new Promise((r) => setTimeout(r, 600));
 
+      // React setea `muted` como PROPIEDAD del DOM, no como atributo HTML, asi
+      // que al serializar los <video> salen sin `muted` y suenan al cargar hasta
+      // que React re-monta. Forzamos el atributo `muted` en todos los videos
+      // antes de serializar para que el HTML pre-renderizado ya nazca muteado.
+      await page.$$eval('#root video', (vids) => {
+        for (const v of vids) v.setAttribute('muted', '');
+      });
+
       // Tomar SOLO el contenido renderizado de #root (no toda la pagina,
       // para no arrastrar los <script> compilados que inyecta Babel-standalone).
       const rootHtml = await page.$eval('#root', (el) => el.innerHTML);
