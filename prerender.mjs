@@ -21,7 +21,7 @@ const ROUTES = [
 ];
 
 // No copiar a dist (archivos de build/control)
-const EXCLUDE = new Set(['dist', 'node_modules', '.git', '.netlify', 'package.json', 'package-lock.json', 'prerender.mjs', 'README.md', '.gitignore', '.DS_Store']);
+const EXCLUDE = new Set(['dist', 'node_modules', '.git', '.netlify', '.cache', 'package.json', 'package-lock.json', 'prerender.mjs', 'README.md', '.gitignore', '.DS_Store']);
 
 const MIME = {
   '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8',

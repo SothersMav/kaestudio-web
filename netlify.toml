@@ -4,10 +4,14 @@
 # con el contenido incrustado en el HTML. El diseño y el JS del sitio no cambian.
 
 [build]
-  command = "npm run build"
+  # Instala Chrome para Puppeteer (Netlify no persiste su cache entre builds)
+  # y luego corre el pre-render. El install es idempotente: si ya esta, no baja.
+  command = "npx puppeteer browsers install chrome && npm run build"
   publish = "dist"
 
 [build.environment]
   NODE_VERSION = "20"
+  # Cache de Puppeteer dentro del repo para que Netlify lo conserve entre builds.
+  PUPPETEER_CACHE_DIR = "/opt/build/repo/.cache/puppeteer"
 
 # Los redirects viven en el archivo _redirects (Netlify lo lee automáticamente).
