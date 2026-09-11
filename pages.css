@@ -497,3 +497,55 @@ a.ci-value:hover { color: var(--ka-celeste-700); }
   .system-wrap { grid-template-columns: 1fr; gap: 32px; }
   .system-gif { max-width: 240px; }
 }
+
+/* ============================================================
+   ROSTROS — strip de videos verticales en loop continuo
+   ============================================================ */
+.rostros-strip {
+  overflow: hidden;
+  padding: 8px 0 56px;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 4%, #000 96%, transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0, #000 4%, #000 96%, transparent 100%);
+}
+.rostros-strip-track {
+  display: flex; width: max-content;
+  animation: rostros-marquee 60s linear infinite;
+}
+.rostros-strip-group { display: flex; gap: 16px; padding-right: 16px; flex-shrink: 0; }
+.rostros-tile { width: clamp(160px, 17vw, 220px); }
+@keyframes rostros-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (max-width: 760px) {
+  .rostros-strip { padding-bottom: 40px; }
+  .rostros-strip-group { gap: 10px; padding-right: 10px; }
+  .rostros-tile { width: 44vw; max-width: 190px; }
+}
+
+/* checkbox de consentimiento (Rostros) */
+.field-check {
+  display: flex; align-items: flex-start; gap: 12px;
+  margin: 4px 0 8px;
+  font-size: 14px; line-height: 1.5; color: var(--ka-negro-600);
+  cursor: pointer;
+}
+.field-check input[type="checkbox"] {
+  appearance: none; -webkit-appearance: none;
+  width: 20px; height: 20px; flex-shrink: 0;
+  margin-top: 1px;
+  border: 1.5px solid var(--ka-negro-200);
+  border-radius: 6px;
+  background: var(--ka-blanco-000);
+  cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: background .2s ease, border-color .2s ease;
+}
+.field-check input[type="checkbox"]:checked {
+  background: var(--ka-celeste);
+  border-color: var(--ka-celeste);
+}
+.field-check input[type="checkbox"]:checked::after {
+  content: '';
+  width: 10px; height: 6px;
+  border-left: 2px solid var(--ka-negro);
+  border-bottom: 2px solid var(--ka-negro);
+  transform: rotate(-45deg) translate(1px, -1px);
+}

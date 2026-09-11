@@ -15,6 +15,7 @@ const PORT = 8723;
 const ROUTES = [
   { url: '/index.html', out: 'index.html' },
   { url: '/Contacto.html', out: 'Contacto.html' },
+  { url: '/Rostros.html', out: 'Rostros.html' },
   { url: '/Servicios/PlanMensual.html', out: 'Servicios/PlanMensual.html' },
   { url: '/Servicios/Producciones.html', out: 'Servicios/Producciones.html' },
   { url: '/Servicios/Corporativo.html', out: 'Servicios/Corporativo.html' },

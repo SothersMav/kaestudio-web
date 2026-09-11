@@ -1,9 +1,10 @@
 CÓMO SUBIR LOS VIDEOS DEL SITIO KA ESTUDIO
 ==========================================
 
-El sitio espera los videos en 3 carpetas, que coinciden con las
-pestañas de la sección de videos:
+El sitio espera los videos en 4 carpetas:
 
+  videos/inicio/     → celular del hero del home (La Fête, McDonald's,
+                       Salfa, Brother; el de Keep se reutiliza desde reels/)
   videos/reels/      → pestaña "reels"     (17 videos)
   videos/campanas/   → pestaña "campañas"  (7 videos)
   videos/eventos/    → pestaña "eventos"   (3 videos)

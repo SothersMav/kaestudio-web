@@ -54,12 +54,12 @@ const Btn = ({ children, variant = 'primary', size = 'md', icon = true, href = '
 
 // ------- nav -------
 const NAV_LINKS = [
-  ['home', 'index.html'],
+  ['inicio', 'index.html'],
   ['portafolio', 'index.html#trabajos'],
   ['servicios', 'index.html#servicios'],
 ];
 const LANDING_NAV = [
-  ['home', 'top', null],
+  ['inicio', 'top', null],
   ['portafolio', 'trabajos', null],
   ['servicios', null, 'index.html#servicios'],
 ];
@@ -72,7 +72,7 @@ const Nav = ({ active = 'inicio' }) => (
       </a>
       <div className="nav-links">
         <a href="#" className="nav-link"
-           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>home</a>
+           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>inicio</a>
         <a href="#trabajos" className="nav-link"
            onClick={(e) => { e.preventDefault(); scrollToId('trabajos'); }}>portafolio</a>
         <span className="nav-link nav-has-menu">
@@ -84,6 +84,7 @@ const Nav = ({ active = 'inicio' }) => (
             <a href="Servicios/Corporativo.html">corporativo</a>
           </div>
         </span>
+        <a href="Rostros.html" className="nav-link">rostros</a>
       </div>
       <div className="nav-cta">
         <Btn variant="primary" href="Contacto.html" icon={true}>hablemos</Btn>
@@ -95,10 +96,11 @@ const Nav = ({ active = 'inicio' }) => (
 // ------- hero with story player -------
 // Hero: mini-stories con videos reales (sin texto sobre el video)
 const STORIES = [
-  { src: 'videos/reels/RAFAGA TREINO (1).mp4',                   time: '2h' },
-  { src: 'videos/reels/KEEP 2 (1).mp4',                          time: '5h' },
-  { src: 'videos/reels/OMODA JAECOO - VERTICAL RECAP DAY 2.mp4', time: '1d' },
-  { src: 'videos/reels/8. 3820 AZOTEA - DRON EDIT.mp4',          time: '3d' },
+  { src: 'videos/inicio/LA FETE - SAN VALENTIN.mp4',        time: '2h' },
+  { src: 'videos/inicio/MC - TEASER - FINAL.mp4',           time: '5h' },
+  { src: 'videos/inicio/SALFA - KIA SONET.mp4',             time: '1d' },
+  { src: 'videos/reels/KEEP 2 (1).mp4',                     time: '2d' },
+  { src: 'videos/inicio/BROTHER - SUBLIMADORA - UGC.mp4',   time: '3d' },
 ];
 
 const StoryPlayer = () => {
@@ -195,46 +197,71 @@ const Hero = () => (
 
 // ------- brands -------
 // h = altura óptica por logo (los cuadrados/compactos necesitan más alto para igualar peso visual)
-const BRANDS = [
-  { src: 'assets/logos/clientes/salfa.svg',       name: 'Salfa',          h: 96 },
+// Dos filas en marquee continuo: la de arriba corre hacia la izquierda, la de abajo hacia la derecha.
+const BRANDS_ROW_A = [
+  { src: 'assets/logos/clientes/salfa.svg',        name: 'Salfa',          h: 96 },
   { src: 'assets/logos/clientes/mcdonalds.svg',    name: "McDonald's",     h: 46 },
   { src: 'assets/logos/clientes/krispy-kreme.svg', name: 'Krispy Kreme',   h: 44 },
-  { src: 'assets/logos/clientes/paris-beauty.svg', name: 'Paris',          h: 30 },
+  { src: 'assets/logos/clientes/puig.png',         name: 'Puig',           h: 34 },
   { src: 'assets/logos/clientes/bardot.svg',       name: 'Bardot',         h: 42 },
-  { src: 'assets/logos/clientes/vidacel.svg',      name: 'Vidacel',        h: 40 },
+  { src: 'assets/logos/clientes/concha-y-toro.png',name: 'Concha y Toro',  h: 56 },
   { src: 'assets/logos/clientes/meki.svg',         name: 'Meki',           h: 48 },
-  { src: 'assets/logos/clientes/treino.svg',       name: 'Treino',         h: 84 },
+  { src: 'assets/logos/clientes/inacap.png',       name: 'Inacap',         h: 40 },
   { src: 'assets/logos/clientes/tio-tomate.svg',   name: 'Tío Tomate',     h: 82 },
-  { src: 'assets/logos/clientes/fat-kid-cafe.svg', name: 'Fat Kid Café',   h: 54 },
+  { src: 'assets/logos/clientes/juan-valdez.png',  name: 'Juan Valdez',    h: 60 },
   { src: 'assets/logos/clientes/lcp.svg',          name: 'Little Caesars', h: 44 },
-  { src: 'assets/logos/clientes/azotea-3820.svg',  name: '3820 Azotea',    h: 34 },
-  { src: 'assets/logos/clientes/blanco.svg',       name: 'Convive',        h: 54 },
-  // 'sabado.svg' removido: el archivo exportado viene sin la imagen incrustada (queda un espacio vacío).
+  { src: 'assets/logos/clientes/socovesa.png',     name: 'Socovesa',       h: 38 },
+  { src: 'assets/logos/clientes/la-fete.png',      name: 'La Fête',        h: 72 },
+  { src: 'assets/logos/clientes/etex.png',         name: 'Etex',           h: 42 },
+  { src: 'assets/logos/clientes/omoda-jaecoo.png', name: 'Omoda | Jaecoo', h: 18 },
 ];
+const BRANDS_ROW_B = [
+  { src: 'assets/logos/clientes/brother.png',      name: 'Brother',        h: 48 },
+  { src: 'assets/logos/clientes/paris-beauty.svg', name: 'Paris',          h: 30 },
+  { src: 'assets/logos/clientes/mr-joy.png',       name: 'Mr. Joy',        h: 56 },
+  { src: 'assets/logos/clientes/vidacel.svg',      name: 'Vidacel',        h: 40 },
+  { src: 'assets/logos/clientes/cafe-haiti.png',   name: 'Café Haití',     h: 48 },
+  { src: 'assets/logos/clientes/treino.svg',       name: 'Treino',         h: 84 },
+  { src: 'assets/logos/clientes/streat-burger.png',name: 'Streat Burger',  h: 48 },
+  { src: 'assets/logos/clientes/sabado.png',       name: 'Sábado',         h: 44 },
+  { src: 'assets/logos/clientes/fat-kid-cafe.svg', name: 'Fat Kid Café',   h: 54 },
+  { src: 'assets/logos/clientes/tres-erres.png',   name: 'Tres Erres',     h: 84 },
+  { src: 'assets/logos/clientes/azotea-3820.svg',  name: '3820 Azotea',    h: 34 },
+  { src: 'assets/logos/clientes/scorpi.png',       name: 'Scorpi',         h: 44 },
+  { src: 'assets/logos/clientes/entre-aulas.png',  name: 'Entre Aulas',    h: 62 },
+  { src: 'assets/logos/clientes/blanco.svg',       name: 'Convive',        h: 54 },
+];
+const BRANDS = [...BRANDS_ROW_A, ...BRANDS_ROW_B];
+const BrandRow = ({ list, reverse = false }) => (
+  <div className={`brands-track ${reverse ? 'is-reverse' : ''}`}>
+    {[0, 1].map((g) => (
+      <div className="brands-group" key={g} aria-hidden={g === 1}>
+        {list.map((b, i) => (
+          <img key={`${g}-${i}`} className="brand-logo" src={b.src} alt={b.name} title={b.name} loading="lazy" style={{ height: (b.h || 42) + 'px' }} />
+        ))}
+      </div>
+    ))}
+  </div>
+);
 const Brands = () => (
   <section className="brands" data-screen-label="Brands">
     <div className="brands-label">
       <Sparkle size={12} color="blanco" className="ka-spin-slow" />
       <span className="brands-label-text">han confiado en nosotros</span>
     </div>
-    <div className="brands-track">
-      {[0, 1].map((g) => (
-        <div className="brands-group" key={g} aria-hidden={g === 1}>
-          {BRANDS.map((b, i) => (
-            <img key={`${g}-${i}`} className="brand-logo" src={b.src} alt={b.name} title={b.name} loading="lazy" style={{ height: (b.h || 42) + 'px' }} />
-          ))}
-        </div>
-      ))}
+    <div className="brands-rows">
+      <BrandRow list={BRANDS_ROW_A} />
+      <BrandRow list={BRANDS_ROW_B} reverse />
     </div>
   </section>
 );
 
 // ------- stats -------
 const STATS = [
-  { pre: '+', target: 55,   fmt: (n) => String(n),                 suf: '',      label: 'marcas con las que hemos trabajado' },
-  { pre: '+', target: 1200, fmt: (n) => n.toLocaleString('es-CL'), suf: '',      label: 'videos producidos para redes sociales' },
+  { pre: '+', target: 120,  fmt: (n) => String(n),                 suf: '',      label: 'marcas con las que hemos trabajado' },
+  { pre: '+', target: 4000, fmt: (n) => n.toLocaleString('es-CL'), suf: '',      label: 'contenidos producidos' },
+  { pre: '+', target: 33,   fmt: (n) => String(n),                 suf: 'M',     label: 'reproducciones generadas en clientes' },
   { pre: '+', target: 5,    fmt: (n) => String(n),                 suf: 'años', label: 'creando contenido en Chile' },
-  { pre: '+', target: 30,   fmt: (n) => String(n),                 suf: 'M',     label: 'reproducciones generadas en clientes' },
 ];
 
 const useCountUp = (target, run, dur = 2200) => {
@@ -322,7 +349,20 @@ const SERVICES = [
     link: 'Servicios/PlanMensual.html',
   },
   {
-    n: '02', tag: '', name: 'producciones',
+    n: '02', tag: '', name: 'pack de contenidos',
+    pitch: 'Pack de videos verticales para tus redes sociales, listos para publicar. Ideal para partir con contenido de calidad sin un plan mensual.',
+    includes: [
+      'Videos verticales listos para publicar',
+      'Guión y dirección creativa',
+      'Rodaje en tu marca o locación',
+      'Entrega optimizada por plataforma',
+    ],
+    price: 'cotización · por pack',
+    featured: false,
+    link: 'Contacto.html',
+  },
+  {
+    n: '03', tag: '', name: 'producciones',
     pitch: 'Proyectos puntuales de videos promocionales para tu marca. Lanzamientos, branding, productos. Te acompañamos desde la idea hasta el resultado final.',
     includes: [
       'Contenidos publicitarios',
@@ -334,7 +374,7 @@ const SERVICES = [
     link: 'Servicios/Producciones.html',
   },
   {
-    n: '03', tag: '', name: 'corporativo',
+    n: '04', tag: '', name: 'corporativo',
     pitch: 'Cubrimos las necesidades audiovisuales de empresas. Llevamos la imagen corporativa a los formatos digitales.',
     includes: [
       'Videos institucionales y de marca',
@@ -346,8 +386,32 @@ const SERVICES = [
     featured: false,
     link: 'Servicios/Corporativo.html',
   },
+  {
+    n: '05', tag: '', name: 'paid media',
+    pitch: 'Gestión de tus campañas pagadas en Meta, TikTok y Google. Estrategia, optimización y reportería con foco en performance.',
+    includes: [
+      'Estrategia y segmentación de audiencias',
+      'Creación y optimización de campañas',
+      'Testeo de creativos y anuncios',
+      'Reportes mensuales de resultados',
+    ],
+    price: 'gestión mensual · según inversión',
+    featured: false,
+    link: 'Contacto.html',
+  },
 ];
-const Services = () => (
+const Services = () => {
+  // el difuminado de los bordes solo aparece hacia el lado donde hay más tarjetas:
+  // al inicio no se difumina el borde izquierdo; al llegar al final, tampoco el derecho
+  const gridRef = useRef(null);
+  const [fade, setFade] = useState({ l: false, r: true });
+  const onScroll = () => {
+    const el = gridRef.current;
+    if (!el) return;
+    const max = el.scrollWidth - el.clientWidth;
+    setFade({ l: el.scrollLeft > 4, r: el.scrollLeft < max - 4 });
+  };
+  return (
   <section className="services" id="servicios" data-screen-label="Services">
     <div className="services-head">
       <div>
@@ -355,7 +419,8 @@ const Services = () => (
         <h2 style={{ marginTop: 14 }}>cómo trabajamos contigo.</h2>
       </div>
     </div>
-    <div className="services-grid">
+    <div className={`services-grid ${fade.l ? 'fade-l' : ''} ${fade.r ? 'fade-r' : ''}`}
+         ref={gridRef} onScroll={onScroll}>
       {SERVICES.map((s) => (
         <article key={s.n} className={`service-card ${s.featured ? 'is-featured' : ''}`}>
           <div className="service-head">
@@ -380,7 +445,8 @@ const Services = () => (
       ))}
     </div>
   </section>
-);
+  );
+};
 
 // ------- showcase / biblioteca de videos -------
 // Cada video apunta a videos/<carpeta>/<archivo>.mp4.
@@ -411,6 +477,7 @@ const POSTER = {
 // ----- REELS (16) -----
 const REELS = [
   { file: VID + 'reels/5.6 SALFA ARICA - KIA SPORTAGE.mp4',          cat: 'reel · automotriz',  client: 'kia sportage',       dur: '0:22', poster: POSTER.car,      featured: true },
+  { file: VID + 'inicio/SALFA - KIA SONET.mp4',                      cat: 'reel · automotriz',  client: 'kia sonet',          dur: '0:20', poster: POSTER.car2 },
   { file: VID + 'reels/8. 3820 AZOTEA - DRON EDIT.mp4',              cat: 'reel · gastronomía', client: 'dron edit',          dur: '0:18', poster: POSTER.food,     featured: true },
   { file: VID + 'reels/OMODA JAECOO - VERTICAL RECAP DAY 2.mp4',     cat: 'reel · automotriz',  client: 'recap omoda',        dur: '0:30', poster: POSTER.car2 },
   { file: VID + 'reels/3.1 BARDOT - OUTFIT VIBES.mp4',               cat: 'reel · lifestyle',   client: 'outfit vibes',       dur: '0:24', poster: POSTER.fashion,  featured: true },
@@ -426,6 +493,22 @@ const REELS = [
   { file: VID + 'reels/BROTHER - SUBLIMADORA - UGC.mp4',             cat: 'reel · ugc',         client: 'sublimadora',        dur: '0:24', poster: POSTER.tech },
   { file: VID + 'reels/4. BARDOT - ZOOM OUT.mp4',                    cat: 'reel · lifestyle',   client: 'zoom out',           dur: '0:15', poster: POSTER.fashion },
   { file: VID + 'reels/PRADERAS LA DEHESA - TOUR CASA.mp4',          cat: 'reel · inmobiliaria',client: 'tour casa',          dur: '0:35', poster: POSTER.house },
+  // --- tanda "VIDEOS PORTAFOLIO PENDIENTES" (2026-09) ---
+  { file: VID + 'reels/KEEP 1.mp4',                                  cat: 'reel · marca',       client: 'keep',               dur: '0:20', poster: POSTER.product },
+  { file: VID + 'reels/4.4 MEKI - TUTORIAL.mp4',                     cat: 'reel · farmacia',    client: 'tutorial',           dur: '0:22', poster: POSTER.beauty },
+  { file: VID + 'ads/4.3 MEKI - COMPRADOR HABITUAL.mp4',             cat: 'reel · farmacia',    client: 'comprador habitual', dur: '0:20', poster: POSTER.beauty },
+  { file: VID + 'reels/3. LA FETE UGC - DELICE.mp4',                 cat: 'reel · ugc',         client: 'delice',             dur: '0:24', poster: POSTER.love },
+  { file: VID + 'reels/KRISPY KREME - COFFEE DAY UGC.mp4',           cat: 'reel · ugc',         client: 'coffee day',         dur: '0:24', poster: POSTER.donuts },
+  { file: VID + 'reels/1. KRISPY KREME - UGC 18 SEP 2.mp4',          cat: 'reel · ugc',         client: '18 de septiembre',   dur: '0:24', poster: POSTER.donuts },
+  { file: VID + 'reels/LITTLE CAESARS - UGC EMPANADA 2026.mp4',      cat: 'reel · ugc',         client: 'empanada',           dur: '0:24', poster: POSTER.pizza },
+  { file: VID + 'reels/HIROUS - ANTISLIP.mp4',                       cat: 'reel · producto',    client: 'antislip',           dur: '0:18', poster: POSTER.product },
+  { file: VID + 'reels/EVERCRISP - RAMITAS MIX 01.mp4',              cat: 'reel · snack',       client: 'ramitas mix',        dur: '0:18', poster: POSTER.food },
+  { file: VID + 'reels/CONCHA Y TORO CLIP - 11.mp4',                 cat: 'reel · vinos',       client: 'concha y toro',      dur: '0:15', poster: POSTER.product },
+  { file: VID + 'reels/7.7 ENTRE AULAS - TOP 3 TALLERES.mp4',        cat: 'reel · educación',   client: 'top 3 talleres',     dur: '0:26', poster: POSTER.tech },
+  { file: VID + 'ads/TREINO - GUION 3 - MUJER (HOOK 3).mp4',         cat: 'reel · fitness',     client: 'treino',             dur: '0:22', poster: POSTER.gym },
+  { file: VID + 'reels/0. MANACOR - CAMI SANTA ANA V1.mp4',          cat: 'reel · inmobiliaria',client: 'cami santa ana',     dur: '0:30', poster: POSTER.house },
+  { file: VID + 'ads/reel-ka-studio.mp4',                            cat: 'reel · ka estudio',  client: 'showreel',           dur: '0:30', poster: POSTER.bts },
+  { file: VID + 'reels/KA ESTUDIO - CREDENCIALES.mp4',               cat: 'reel · ka estudio',  client: 'credenciales',       dur: '0:40', poster: POSTER.bts },
 ].map((v) => ({ ...v, group: 'reels' }));
 
 // ----- CAMPAÑAS (8) -----
@@ -438,6 +521,16 @@ const CAMPANAS = [
   { file: VID + 'campanas/Master_Brisket_V_Media.mp4',        cat: 'campaña · food',   client: 'brisket',         dur: '0:40', poster: POSTER.bbq },
   { file: VID + 'campanas/REEL 1 - CONSUMO V4.mp4',           cat: 'campaña · marca',  client: 'consumo',         dur: '0:22', poster: POSTER.food },
   { file: VID + 'campanas/MC_TEASER_TEXTO V5.mp4',            cat: 'campaña · food',   client: 'mc teaser',       dur: '0:15', poster: POSTER.bts },
+  // --- tanda "VIDEOS PORTAFOLIO PENDIENTES" (2026-09) ---
+  { file: VID + 'campanas/PUIG - BENETTON.mp4',                  cat: 'campaña · beauty', client: 'benetton',        dur: '0:25', poster: POSTER.beauty },
+  { file: VID + 'campanas/DOMINO X DORITOS (VERTICAL).mp4',      cat: 'campaña · food',   client: 'dominó x doritos',dur: '0:20', poster: POSTER.pizza },
+  { file: VID + 'campanas/DOMINO - FRANKS VERTICAL.mp4',         cat: 'campaña · food',   client: 'dominó franks',   dur: '0:20', poster: POSTER.pizza },
+  { file: VID + 'campanas/KRISPY KREME - CAFETERIA V5.mp4',      cat: 'campaña · food',   client: 'cafetería',       dur: '0:22', poster: POSTER.donuts },
+  { file: VID + 'campanas/6.2 MR.JOY - CAMPANA INVIERNO v2.mp4', cat: 'campaña · food',   client: 'invierno',        dur: '0:24', poster: POSTER.food },
+  { file: VID + 'campanas/10. MEKI - CORPORATIVO.mp4',           cat: 'campaña · marca',  client: 'meki corporativo',dur: '0:24', poster: POSTER.beauty },
+  { file: VID + 'ads/3. CONVIVE - LEY MISCELANEA.mp4',           cat: 'campaña · marca',  client: 'ley miscelánea',  dur: '0:30', poster: POSTER.product },
+  { file: VID + 'campanas/1. JUAN VALDEZ DONDE SEA - MIXES V2.mp4', cat: 'campaña · café', client: 'mixes',          dur: '0:20', poster: POSTER.food },
+  { file: VID + 'campanas/JV - RED VELVET (SIN LOGO).mp4',       cat: 'campaña · café',   client: 'red velvet',      dur: '0:18', poster: POSTER.donuts },
 ].map((v) => ({ ...v, group: 'campañas' }));
 
 // ----- EVENTOS (4) -----
@@ -516,9 +609,91 @@ const VideoTile = ({ v }) => {
 };
 
 const SHOWCASE_PREVIEW_COUNT = 6;
+// Fisher-Yates: el orden de los videos es aleatorio en cada visita
+const shuffle = (arr) => {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+};
+// Fila en loop continuo manejada por JS (no CSS) para poder:
+// pausar al pasar el mouse encima y arrastrar con el mouse a izquierda/derecha.
+// El contenido va duplicado y el scroll se mantiene en [0, mitad) — el salto entre
+// copias es invisible. dir: -1 = la fila avanza hacia la derecha, 1 = hacia la izquierda.
+const MarqueeRow = ({ items, dir = 1, speed = 35, rowKey }) => {
+  const ref = useRef(null);
+  const st = useRef({ pos: 0, hover: false, drag: false, touch: false, startX: 0, startPos: 0, last: 0 });
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const s = st.current;
+    let raf;
+    const tick = (now) => {
+      const dt = s.last ? Math.min(0.1, (now - s.last) / 1000) : 0;
+      s.last = now;
+      const half = el.scrollWidth / 2;
+      if (half > 0) {
+        if (s.drag) {
+          // el handler de drag ya dejó s.pos listo
+        } else if (s.hover || s.touch) {
+          s.pos = el.scrollLeft; // sincroniza con el scroll nativo
+        } else {
+          s.pos += dir * speed * dt;
+        }
+        if (s.pos < 0) s.pos += half;
+        else if (s.pos >= half) s.pos -= half;
+        el.scrollLeft = s.pos;
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [dir, speed]);
+
+  const onPointerDown = (e) => {
+    const s = st.current;
+    if (e.pointerType === 'mouse') {
+      s.drag = true;
+      s.startX = e.clientX;
+      s.startPos = s.pos;
+      e.currentTarget.setPointerCapture(e.pointerId);
+    } else {
+      s.touch = true; // en touch manda el scroll nativo
+    }
+  };
+  const onPointerMove = (e) => {
+    const s = st.current;
+    if (!s.drag) return;
+    const el = ref.current;
+    const half = el.scrollWidth / 2;
+    let p = s.startPos - (e.clientX - s.startX);
+    p = ((p % half) + half) % half;
+    s.pos = p;
+    el.scrollLeft = p;
+  };
+  const onPointerUp = () => { const s = st.current; s.drag = false; s.touch = false; };
+
+  return (
+    <div className="showcase-row is-drag" ref={ref}
+         onMouseEnter={() => { st.current.hover = true; }}
+         onMouseLeave={() => { st.current.hover = false; st.current.drag = false; }}
+         onPointerDown={onPointerDown} onPointerMove={onPointerMove}
+         onPointerUp={onPointerUp} onPointerCancel={onPointerUp}>
+      {[0, 1].map((g) => (
+        <div className="showcase-group" key={g} aria-hidden={g === 1}>
+          {items.map((v, i) => <VideoTile key={`${g}-${rowKey}-${i}`} v={v} />)}
+        </div>
+      ))}
+    </div>
+  );
+};
+
 const Showcase = () => {
-  const items = VIDEOS;
-  // dos filas, alternando para que ambas queden parejas
+  // orden random calculado una sola vez al montar
+  const [items] = useState(() => shuffle(VIDEOS));
   const rowA = items.filter((_, i) => i % 2 === 0);
   const rowB = items.filter((_, i) => i % 2 === 1);
   return (
@@ -526,16 +701,13 @@ const Showcase = () => {
       <div className="showcase-head">
         <div>
           <Eyebrow light>T R A B A J O S · D E S T A C A D O S</Eyebrow>
-          <h2 style={{ marginTop: 14 }}>el formato es vertical, los resultados no.</h2>
+          <h2 style={{ marginTop: 14 }}>dominamos el formato <em>vertical</em><br/>mejor que <em>cualquiera</em>.</h2>
         </div>
       </div>
       <div className="showcase-rows">
-        <div className="showcase-row">
-          {rowA.map((v, i) => <VideoTile key={`a-${i}`} v={v} />)}
-        </div>
-        <div className="showcase-row">
-          {rowB.map((v, i) => <VideoTile key={`b-${i}`} v={v} />)}
-        </div>
+        {/* la de arriba avanza hacia la derecha, la de abajo hacia la izquierda */}
+        <MarqueeRow items={rowA} dir={-1} rowKey="a" />
+        <MarqueeRow items={rowB} dir={1} rowKey="b" />
       </div>
     </section>
   );
@@ -641,22 +813,45 @@ const FAQ_ITEMS = [
   { q: '¿Hacen producciones puntuales o solo planes mensuales?', a: 'Ambos. Además del Plan Mensual, hacemos producciones puntuales para campañas, lanzamientos y eventos, y contenido audiovisual corporativo para empresas.' },
   { q: '¿Cómo puedo cotizar?', a: 'Escríbenos por el formulario de contacto o por Instagram. Te respondemos en menos de 24 horas con una propuesta a tu medida.' },
 ];
-const Faq = () => (
-  <section className="faq" id="faq" data-screen-label="FAQ">
-    <div className="faq-head">
-      <Eyebrow>P R E G U N T A S · F R E C U E N T E S</Eyebrow>
-      <h2>lo que más nos preguntan.</h2>
-    </div>
-    <div className="faq-list">
-      {FAQ_ITEMS.map((it, i) => (
-        <div className="faq-item" key={i}>
-          <h3 className="faq-q">{it.q}</h3>
-          <p className="faq-a">{it.a}</p>
-        </div>
-      ))}
-    </div>
-  </section>
+// Sparkle de la marca en celeste (inline para poder pintarlo con el color corporativo)
+const SparkleCeleste = ({ size = 16 }) => (
+  <svg className="faq-sparkle" width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12 0c.9 6.8 4.3 10.2 12 12-7.7 1.8-11.1 5.2-12 12-.9-6.8-4.3-10.2-12-12C7.7 10.2 11.1 6.8 12 0z" fill="var(--ka-celeste)" />
+  </svg>
 );
+const FaqItem = ({ it, open, onToggle }) => (
+  <div className={`faq-item ${open ? 'is-open' : ''}`}>
+    <button className="faq-q-btn" onClick={onToggle} aria-expanded={open}>
+      <SparkleCeleste />
+      <h3 className="faq-q">{it.q}</h3>
+      <span className="faq-toggle" aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+          <line x1="12" y1="5" x2="12" y2="19" className="faq-toggle-v" />
+          <line x1="5" y1="12" x2="19" y2="12" />
+        </svg>
+      </span>
+    </button>
+    <div className="faq-a-wrap">
+      <p className="faq-a">{it.a}</p>
+    </div>
+  </div>
+);
+const Faq = () => {
+  const [open, setOpen] = useState(-1);
+  return (
+    <section className="faq" id="faq" data-screen-label="FAQ">
+      <div className="faq-head">
+        <Eyebrow>P R E G U N T A S · F R E C U E N T E S</Eyebrow>
+        <h2>lo que más nos preguntan.</h2>
+      </div>
+      <div className="faq-list">
+        {FAQ_ITEMS.map((it, i) => (
+          <FaqItem key={i} it={it} open={open === i} onToggle={() => setOpen(open === i ? -1 : i)} />
+        ))}
+      </div>
+    </section>
+  );
+};
 
 // ------- footer -------
 const Footer = () => (
@@ -666,13 +861,24 @@ const Footer = () => (
          onClick={LANDING ? (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); } : undefined}>
         <img src={ASSET['logo-horizontal-blanco']} alt="KA Estudio" />
       </a>
-      <a className="footer-ig" href="https://www.instagram.com/kaestudio.cl/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.6">
-          <rect x="3" y="3" width="18" height="18" rx="5"/>
-          <circle cx="12" cy="12" r="4"/>
-          <circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/>
-        </svg>
-      </a>
+      <div className="footer-social">
+        <a className="footer-ig" href="https://www.instagram.com/kaestudio.cl/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.6">
+            <rect x="3" y="3" width="18" height="18" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <a className="footer-ig" href="https://www.linkedin.com/company/ka-estudio" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.6">
+            <rect x="3" y="3" width="18" height="18" rx="5"/>
+            <line x1="8" y1="10.5" x2="8" y2="16.5"/>
+            <circle cx="8" cy="7.6" r="0.9" fill="currentColor" stroke="none"/>
+            <path d="M12 16.5v-3.4a2.4 2.4 0 0 1 4.8 0v3.4"/>
+            <line x1="12" y1="10.5" x2="12" y2="16.5"/>
+          </svg>
+        </a>
+      </div>
     </div>
   </footer>
 );

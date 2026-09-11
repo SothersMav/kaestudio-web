@@ -49,7 +49,7 @@ const Btn = ({ children, variant = 'primary', size = 'md', icon = true, href = '
 
 /* ---------- nav (mismo markup/clases que el home, multipágina) ---------- */
 const NAV_LINKS = [
-  ['home', A('index.html')],
+  ['inicio', A('index.html')],
   ['portafolio', A('index.html') + '#trabajos'],
   ['servicios', A('index.html') + '#servicios'],
 ];
@@ -60,7 +60,7 @@ const Nav = ({ active = '' }) => (
         <img src={ASSET['logo-horizontal-negro']} alt="KA Estudio" />
       </a>
       <div className="nav-links">
-        <a href={A('index.html')} className="nav-link">home</a>
+        <a href={A('index.html')} className="nav-link">inicio</a>
         <a href={A('index.html') + '#trabajos'} className="nav-link">portafolio</a>
         <span className={`nav-link nav-has-menu ${active === 'servicios' ? 'is-active' : ''}`}>
           <a href={A('index.html') + '#servicios'} className="nav-link-text">servicios</a>
@@ -70,6 +70,7 @@ const Nav = ({ active = '' }) => (
             <a href={A('Servicios/Corporativo.html')}>corporativo</a>
           </div>
         </span>
+        <a href={A('Rostros.html')} className={`nav-link ${active === 'rostros' ? 'is-active' : ''}`}>rostros</a>
       </div>
       <div className="nav-cta">
         <Btn variant="primary" href={A('Contacto.html')} icon={true}>hablemos</Btn>
@@ -85,13 +86,24 @@ const Footer = () => (
       <a href={A('index.html')} className="footer-logo" aria-label="KA Estudio">
         <img src={ASSET['logo-horizontal-blanco']} alt="KA Estudio" />
       </a>
-      <a className="footer-ig" href="https://www.instagram.com/kaestudio.cl/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.6">
-          <rect x="3" y="3" width="18" height="18" rx="5"/>
-          <circle cx="12" cy="12" r="4"/>
-          <circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/>
-        </svg>
-      </a>
+      <div className="footer-social">
+        <a className="footer-ig" href="https://www.instagram.com/kaestudio.cl/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.6">
+            <rect x="3" y="3" width="18" height="18" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <a className="footer-ig" href="https://www.linkedin.com/company/ka-estudio" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.6">
+            <rect x="3" y="3" width="18" height="18" rx="5"/>
+            <line x1="8" y1="10.5" x2="8" y2="16.5"/>
+            <circle cx="8" cy="7.6" r="0.9" fill="currentColor" stroke="none"/>
+            <path d="M12 16.5v-3.4a2.4 2.4 0 0 1 4.8 0v3.4"/>
+            <line x1="12" y1="10.5" x2="12" y2="16.5"/>
+          </svg>
+        </a>
+      </div>
     </div>
   </footer>
 );
